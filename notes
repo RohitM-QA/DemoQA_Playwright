@@ -1,0 +1,39 @@
+playwright-demoqa-framework/
+│
+├── pages/
+│   ├── BasePage.js
+│   ├── LoginPage.js
+│   ├── TextBoxPage.js
+│   ├── CheckBoxPage.js
+│   ├── WebTablesPage.js
+│   └── PracticeFormPage.js
+│
+├── tests/
+│   ├── login/
+│   │   └── login.spec.js
+│   │
+│   ├── elements/
+│   │   ├── textbox.spec.js
+│   │   ├── checkbox.spec.js
+│   │   └── webtable.spec.js
+│   │
+│   └── forms/
+│       └── practiceForm.spec.js
+│
+├── fixtures/
+│   └── testData.json
+│
+├── utils/
+│   ├── helpers.js
+│   ├── constants.js
+│   └── logger.js
+│
+├── test-results/
+├── playwright-report/
+├── screenshots/
+├── videos/
+│
+├── .gitignore
+├── package.json
+├── playwright.config.js
+└── README.md

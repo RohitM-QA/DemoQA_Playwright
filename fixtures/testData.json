@@ -1,0 +1,20 @@
+{
+  "login": {
+    "username": "testuser",
+    "password": "Password123"
+  },
+
+  "textbox": {
+    "name": "Rohit Mandal",
+    "email": "rohit.percoidit@gmail.com",
+    "currentAddress": "Kathmandu",
+    "permanentAddress": "Nepal"
+  },
+
+  "practiceForm": {
+    "firstName": "Rohit",
+    "lastName": "Mandal",
+    "email": "rohit@test.com",
+    "mobile": "9876543210"
+  }
+}
