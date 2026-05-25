@@ -1,39 +1,38 @@
-playwright-demoqa-framework/
+demoqa-playwright-framework/
+│
+├── tests/
+│   ├── elements/
+│   │   └── textBox.spec.js
+│   ├── forms/
+│   │   └── practiceForm.spec.js
+│   ├── alerts/
+│   │   └── alerts.spec.js
+│   ├── widgets/
+│   │   └── datePicker.spec.js
+│   ├── interactions/
+│   │   └── dragDrop.spec.js
+│   ├── bookStore/
+│   │   └── login.spec.js
 │
 ├── pages/
 │   ├── BasePage.js
-│   ├── LoginPage.js
-│   ├── TextBoxPage.js
-│   ├── CheckBoxPage.js
-│   ├── WebTablesPage.js
-│   └── PracticeFormPage.js
-│
-├── tests/
-│   ├── login/
-│   │   └── login.spec.js
-│   │
 │   ├── elements/
-│   │   ├── textbox.spec.js
-│   │   ├── checkbox.spec.js
-│   │   └── webtable.spec.js
-│   │
-│   └── forms/
-│       └── practiceForm.spec.js
-│
-├── fixtures/
-│   └── testData.json
+│   │   └── TextBoxPage.js
+│   ├── forms/
+│   │   └── PracticeFormPage.js
+│   ├── alerts/
+│   │   └── AlertsPage.js
+│   ├── widgets/
+│   │   └── DatePickerPage.js
+│   ├── interactions/
+│   │   └── DragDropPage.js
+│   ├── bookStore/
+│   │   └── LoginPage.js
 │
 ├── utils/
-│   ├── helpers.js
-│   ├── constants.js
-│   └── logger.js
+│   ├── config.js
+│   ├── testData.json
 │
-├── test-results/
-├── playwright-report/
-├── screenshots/
-├── videos/
-│
-├── .gitignore
-├── package.json
 ├── playwright.config.js
+├── package.json
 └── README.md
