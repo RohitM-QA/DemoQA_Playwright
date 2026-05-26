@@ -2,7 +2,7 @@ const BasePage = require('../BasePage');
 
 class TextBoxPage extends BasePage{
 
-    constructor(page){
+    constructor(page) {
         super(page);
 
 
@@ -11,10 +11,11 @@ class TextBoxPage extends BasePage{
         this.currentAddress = page.locator('#currentAddress');
         this.permanentAddress = page.locator('#permanentAddress');
         this.submitButton = page.locator('#submit');
+        this.output = '#output';
     }
 
-    async openBrowser(){
-        await this.page.goTto('/text-box');
+    async openBrowser() {
+        await this.page.goto('/text-box');
     }
 
     async submitForm(fName, emailAdd, cAddress, pAddress){

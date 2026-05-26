@@ -8,15 +8,15 @@ class BasePage {
   }
 
   async click(locator) {
-    await this.page.locator(locator).click();
+    await locator.click();
   }
 
   async fill(locator, value) {
-    await this.page.locator(locator).fill(value);
+    await locator.fill(value);
   }
 
   async getText(locator) {
-    return await this.page.locator(locator).innerText();
+    return await locator.innerText();
   }
 }
 
