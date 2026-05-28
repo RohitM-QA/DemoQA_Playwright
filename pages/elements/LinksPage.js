@@ -26,15 +26,55 @@ async openBrowser() {
 }
 
 async clickHomeLink(){
-    const [newPage] = await promises.all([
+    const [newPage] = await Promise.all([
         this.page.context().waitForEvent('page'),
-        this.page.click(this.homeLink)
+        this.homeLink.click()
     ]);
     await newPage.waitForLoadState();
     return newPage;    
 }
 
+async dynamicHomeLink(){
+    const [newPage] = await Promise.all([
+        this.page.context().waitForEvent('page'),
+        this.dynamicLink.click()
+    ]);
+    await newPage.waitForLoadState();
+    return newPage;
+}
 
+async clickCreatedLink(){
+    await this.click(this.createdLink);
+}
 
+async clickNoContentLink(){
+    await this.click(this.noContentLink);
+}
+
+async clickMovedLink(){
+    await this.click(this.movedLink);
+}
+
+async clickBadRequestLink(){
+    await this.click(this.badRequestLink);
+}
+
+async clickUnauthLink(){
+    await this.click(this.unauthorizedLink);
+}
+
+async clickForbiddenLink(){
+    await this.click(this.forbiddenLink);
+}
+
+async clickNotFoundLink(){
+    await this.click(this.notFoundLink);
+}
+
+async getResponseMsg (){
+    return await this.page.textContent('this.linkResponse');
+}
 
 }
+
+module.exports = LinksPage;
