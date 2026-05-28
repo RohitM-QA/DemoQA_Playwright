@@ -1,12 +1,12 @@
 const { test, expect } = require('@playwright/test');
-const CheckboxPage = require('../../pages/forms/CheckboxPage');
+const CheckboxPage = require('../../pages/elements/checkboxPage');
 
 //Test1
 test('Verify the checkboxes', async ({ page }) => {
     const checkBoxPage  = new CheckboxPage(page);
 
     await checkBoxPage.openBrowser();
-    await page.pause();
+    //await page.pause();
 
     await checkBoxPage.clickCheckbox();
 

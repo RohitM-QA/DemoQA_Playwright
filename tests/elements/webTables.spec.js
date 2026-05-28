@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const WebTablesPage = require('../../pages/WTables/webTablesPage');
+const WebTablesPage = require('../../pages/elements/webTablesPage');
 
 test('Web Tables - Add, Edit, Delete User', async({ page }) => {
     const webTablesPage = new WebTablesPage(page);

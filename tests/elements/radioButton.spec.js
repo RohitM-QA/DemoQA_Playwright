@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const RadioButtonPage = require('../../pages/Radio/radioButtonPage');
+const RadioButtonPage = require('../../pages/elements/radioButtonPage');
 
 //Test1
 test ('Verify the Radio Buttons', async ({page}) => {
