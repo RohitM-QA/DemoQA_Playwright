@@ -4,7 +4,7 @@ const LinksPage = require('../../pages/elements/linksPage');
 test('Verify the Home Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
     
     const newPage = await linkPage.clickHomeLink();
     await expect(newPage).toHaveURL('https://demoqa.com/');
@@ -14,7 +14,7 @@ test('Verify the Home Link', async ({ page }) =>{
 test('Verify the Dynamic Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+   // await page.pause();
  
     await linkPage.dynamicHomeLink();
 })
@@ -22,7 +22,7 @@ test('Verify the Dynamic Link', async ({ page }) =>{
 test('Verify the Created API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickCreatedLink();
 
@@ -34,48 +34,66 @@ test('Verify the Created API Link', async ({ page }) =>{
 test('Verify the No Content API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+   // await page.pause();
  
     await linkPage.clickNoContentLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 204 and status text No Content');
 })
 
 test('Verify the Moved API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickMovedLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 301 and status text Moved Permanently');
 })
 
 test('Verify the Bad Request API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickBadRequestLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 400 and status text Bad Request');
 })
 
 test('Verify the Unauthorized API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickUnauthLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 401 and status text Unauthorized');
 })
 
 test('Verify the Forbidden API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickForbiddenLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 403 and status text Forbidden');
 })
 
 test('Verify the Not Found API Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-    await page.pause();
+    //await page.pause();
  
     await linkPage.clickNotFoundLink();
+    await expect(
+    page.locator('#linkResponse')
+  ).toHaveText('Link has responded with staus 404 and status text Not Found');
 })
 
