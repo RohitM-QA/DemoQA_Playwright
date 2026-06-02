@@ -14,7 +14,7 @@ test('Verify the Home Link', async ({ page }) =>{
 test('Verify the Dynamic Link', async ({ page }) =>{
     const linkPage = new LinksPage(page);
     await linkPage.openBrowser();
-   // await page.pause();
+    //await page.pause();
  
     await linkPage.dynamicHomeLink();
 })
