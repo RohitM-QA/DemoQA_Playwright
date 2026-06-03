@@ -6,7 +6,7 @@ class PracticeFormPage extends BasePage {
 
         this.firstName = page.locator('#firstName');
         this.lastName = page.locator('#lastName');
-        this.userEmail = page.locator('#userEmail')
+        this.email = page.locator('#userEmail')
 
         this.genderMale = page.locator('label[for= "gender-radio-1"]');
         this.genderFemale = page.locator('label[for= "gender-radio-2"]');
@@ -15,18 +15,22 @@ class PracticeFormPage extends BasePage {
         this.mblNumber = page.locator('#userNumber');
         this.dateOfBirth = page.locator('#dateOfBirthInput');
         this.subjectName = page.locator('#subjectsInput');
-        
-        this.sportHobby = page.locator('input[id="hobbies-checkbox-1"]');
+
+        //this.sportHobby = page.locator('input[id="hobbies-checkbox-1"]');
+        this.sportHobby = page.locator('#hobbies-checkbox-1');
         this.readingHobby = page.locator('input[id="hobbies-checkbox-2"]');
         this.musicHobby = page.locator('input[id="hobbies-checkbox-3"]');
 
-        this.pictureUpload = page.locator('#uploadPicture');
+        //this.pictureUpload = page.locator('#uploadPicture');
 
         this.currentAddress = page.locator('#currentAddress');
         this.stateDropdown = page.locator('#state');
         this.cityDropdown = page.locator('#city');
 
         this.submitBtn = page.locator('#submit');
+
+        this.successTitle = page.locator('#example-modal-sizes-title-lg');
+        this.closeBtn = page.locator('#closeLargeModal');
 
     }
 
@@ -42,24 +46,24 @@ class PracticeFormPage extends BasePage {
         await this.lastName.fill(lastName);
     }
 
-    async enterEmail(userEmail) {
-        await this.userEmail.fill(userEmail);
+    async enterEmail(email) {
+        await this.email.fill(email);
     }
 
     async selectGender(gender) {
 
-        switch(gender.toLowerCase()) {
+        switch (gender.toLowerCase()) {
 
             case 'male':
-                await this.page.click(this.genderMale);
+                await this.genderMale.click();
                 break;
 
             case 'female':
-                await this.page.click(this.genderFemale);
+                await this.genderFemale.click();
                 break;
 
             case 'other':
-                await this.page.click(this.genderOther);
+                await this.genderOther.click();
                 break;
         }
     }
@@ -68,17 +72,19 @@ class PracticeFormPage extends BasePage {
         await this.mblNumber.fill(mobileNumber);
     }
 
-    async dateOfBirth(birthDate) {
-        await this.dateOfBirth.fill(birthDate);
+    async selectDateOfBirth(date) {
+        await this.dateOfBirth.fill(date);
         await this.page.keyboard.press('Enter');
     }
 
     async enterSubject(subject) {
         await this.subjectName.fill(subject);
+        //await this.subjectsInput.press('Escape');
+        await this.page.click('body');
     }
 
     async selectHobby(Hobbies) {
-        switch(Hobbies.toLowerCase()) {
+        switch (Hobbies.toLowerCase()) {
 
             case 'sports':
                 await this.sportHobby.check();
@@ -94,12 +100,12 @@ class PracticeFormPage extends BasePage {
         }
     }
 
-    async uploadPicture(filePath) {
-    await this.pictureUpload.setInputFiles(filePath);
-}
+    // async uploadPicture(filePath) {
+    //     await this.pictureUpload.setInputFiles(filePath);
+    // }
 
-    async enterCurrentAdd(address){
-        this.currentAddress.fill(address);
+    async enterAddress(address) {
+        await this.currentAddress.fill(address);
     }
 
     async selectState(state) {
@@ -122,6 +128,31 @@ class PracticeFormPage extends BasePage {
 
     async clickOnSubmit() {
         await this.submitBtn.click();
+    }
+
+    async confirmSuccessMsg() {
+        return await this.successTitle.textContents();
+    }
+
+    async clickOnCloseBtn() {
+        await this.closeBtn.click();
+    }
+
+    async fillPracticeForm(data) {
+        await this.enterFirstName(data.firstName);
+        await this.enterLastName(data.lastName);
+        await this.enterEmail(data.email);
+        await this.selectGender(data.gender);
+        await this.enterMobileNo(data.mobileNumber);
+        await this.selectDateOfBirth(data.date);
+        await this.enterSubject(data.subject);
+        await this.selectHobby(data.Hobbies);
+        //await this.uploadPicture(data.filePath);
+        await this.enterAddress(data.address);
+        await this.selectState(data.state);
+        await this.selectCity(data.city);
+
+        await this.clickOnSubmit();
     }
 
 }
