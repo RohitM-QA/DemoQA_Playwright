@@ -9,21 +9,45 @@ class AlertPage extends BasePage {
         this.timerAlertBtn = page.locator('#timerAlertButton');
         this.confirmAlertBtn = page.locator('#confirmButton');
         this.promptAlertBtn = page.locator('#promtButton');
-        
+
     }
-    
-    async openBrowser () {
+
+    async openBrowser() {
         await this.page.goto('/alerts');
     }
 
-    async openSimpleAlert(){
-        this.page.once('dailog', async dialog => {
+    async openSimpleAlert() {
+        this.page.once('dialog', async dialog => {
             console.log(dialog.message());
             await dialog.accept();
             await this.page.click(this.simpleAlertBtn);
         })
     }
-   
+
+    async openTimerAlert() {
+        this.page.once('dialog', async dialog => {
+            console.log(dialog.message());
+            await dialog.accept();
+            await this.page.click(this.timerAlertBtn);
+        })
+    }
+
+    async openConfirmAlert() {
+        this.page.once('dialog', async dialog => {
+            console.log(dialog.message());
+            await dialog.accept();
+            await this.page.click(this.confirmAlertBtn);
+        })
+    }
+
+    async openPromptAlert() {
+        this.page.once('dialog', async dialog => {
+            console.log(dialog.message());
+            await dialog.accept();
+            await this.page.click(this.promptAlertBtn);
+        })
+    }
+
 
 
 }
