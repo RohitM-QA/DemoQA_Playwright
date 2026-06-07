@@ -12,7 +12,7 @@ class FramePage extends BasePage {
         await this.page.goto('/frames');
     }
 
-    async getFram1() {
+    async getFrame1() {
         const frame1 = this.page.frameLocator(this.firstFrame);
         return await frame1.locator().textContent();
     }
@@ -23,11 +23,15 @@ class FramePage extends BasePage {
     }
 
 
+    async getFrameCount() {
+        return await this.page.locator('iframe').count();
+    }
 
-
-
-
-
+    async isFrameVisible(frameSelector) {
+        return await this.page.locator(frameSelector).isVisible();
+    }
 
 
 }
+
+module.exports = FramePage;
