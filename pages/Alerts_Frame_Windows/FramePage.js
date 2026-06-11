@@ -6,6 +6,8 @@ class FramePage extends BasePage {
 
         this.firstFrame = page.locator('#frame1');
         this.secondFrame = page.locator('#frame2');
+
+        this.frameHeading = 'h1';
     }
 
     async openBrowser() {
@@ -14,12 +16,12 @@ class FramePage extends BasePage {
 
     async getFrame1() {
         const frame1 = this.page.frameLocator(this.firstFrame);
-        return await frame1.locator().textContent();
+        return await frame1.locator(this.frameHeading).textContent();
     }
 
     async getFrame2() {
         const frame2 = this.page.frameLocator(this.secondFrame);
-        return await frame2.locator().textContent();
+        return await frame2.locator(this.frameHeading).textContent();
     }
 
 

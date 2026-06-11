@@ -14,7 +14,8 @@ test.describe('Frame - Test Cases', () => {
     });
 
     test('Verify the Count', async () => {
-        await framePage.
+        const count = await framePage.getFrameCount();
+        expect(count).toBe(2);
 
 
     });
