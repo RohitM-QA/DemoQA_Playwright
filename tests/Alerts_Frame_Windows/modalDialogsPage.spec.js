@@ -10,7 +10,7 @@ test.describe('Modal Pages Tests', () => {
         modalPage = new ModalPage(page);
 
         await modalPage.openBrowser();
-        await page.pause();
+        //await page.pause();
     });
 
     test('Verify Small Button', async () => {
@@ -18,28 +18,31 @@ test.describe('Modal Pages Tests', () => {
 
     })
 
-    test ('Verfy Large Button', async () => {
+    test('Verify Large Button', async () => {
         await modalPage.clickOnLargeBtn();
-    }) 
-
-    test ('Verfy Small Modal Title', async () => {
-        await modalPage.getSmlModalTitle;
-    }) 
-
-    test ('Verfy Large Modal Title', async () => {
-        await modalPage.getLrgModalTitle;
-    }) 
-
-    test ('Verfy Body Texts', async () => {
-        await modalPage.getBodyText;
     })
 
-    test ('Verfy Close Small Modal', async () => {
-        await modalPage.closeSmallModal;
+    test('Verify Small Modal Title', async () => {
+        await modalPage.getSmlModalTitle();
+        //console.log(title);
     })
-    
-    test ('Verfy Large Small Modal', async () => {
-        await modalPage.closeLargeModal;
+
+    test('Verify Large Modal Title', async () => {
+        await modalPage.getLrgModalTitle();
+        //console.log(title);
+    })
+
+    test('Verify Body Texts', async () => {
+        await modalPage.getBodyText();
+        //console.log(bodyText);
+    })
+
+    test('Verify Close Small Modal', async () => {
+        await modalPage.closeSmallModal();
+    })
+
+    test('Verify Large Modal', async () => {
+        await modalPage.closeLargeModal();
     })
 
 

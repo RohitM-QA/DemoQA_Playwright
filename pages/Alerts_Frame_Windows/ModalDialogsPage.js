@@ -5,7 +5,7 @@ class ModalDialogsPage extends BasePage {
         super(page);
 
         this.smallModalBtn = page.locator('#showSmallModal');
-        this.largeModalBtn = page.locator('#showLargeModal')
+        this.largeModalBtn = page.locator('#showLargeModal');
 
         this.smallModalTitle = page.locator('#example-modal-sizes-title-sm');
         this.largeModalTitle = page.locator('#example-modal-sizes-title-lg');
@@ -14,43 +14,39 @@ class ModalDialogsPage extends BasePage {
 
         this.closeSmallBtn = page.locator('#closeSmallModal');
         this.closeLargeBtn = page.locator('#closeLargeModal');
-
-        
-
     }
 
-    async openBrowser () {
+    async openBrowser() {
         await this.page.goto('/modal-dialogs');
     }
 
-    async clickOnSmallBtn () {
+    async clickOnSmallBtn() {
         await this.smallModalBtn.click();
     }
 
-    async clickOnLargeBtn () {
+    async clickOnLargeBtn() {
         await this.largeModalBtn.click();
     }
 
-    async getSmlModalTitle () {
+    async getSmlModalTitle() {
         return await this.smallModalTitle.textContent();
     }
 
-    async getLrgModalTitle () {
-        return await this.page.locator(this.largeModalTitle).textContent();
+    async getLrgModalTitle() {
+        return await this.largeModalTitle.textContent();
     }
 
-    async getBodyText () {
-        return await this.page.locator(this.bodyText).textContent();
+    async getBodyText() {
+        return await this.bodyText.textContent();
     }
 
-    async closeSmallModal () {
-        await this.page.click(this.closeSmallBtn);
+    async closeSmallModal() {
+        await this.closeSmallBtn.click();
     }
 
-    async closeLargeModal () {
-        await this.page.click(this.closeLargeBtn);
-    }  
-
+    async closeLargeModal() {
+        await this.closeLargeBtn.click();
+    }
 }
 
 module.exports = ModalDialogsPage;
